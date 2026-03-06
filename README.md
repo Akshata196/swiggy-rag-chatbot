@@ -4,7 +4,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system that answe
 
 ## Dataset
 Swiggy Annual Report FY 2023–2024  
-Source: https://www.swiggy.com/investors
+Source: [data/swiggy_annual_report.pdf](data/swiggy_annual_report.pdf)
 
 ## Architecture
 
@@ -50,3 +50,7 @@ streamlit run app.py
 - What services does Swiggy provide?
 - How many cities does Swiggy operate in?
 - What was Swiggy's net loss in FY2024?
+
+## Demo
+
+![Swiggy RAG Chatbot Demo](Demo.png)
