@@ -10,6 +10,10 @@ Source: [data/swiggy_annual_report.pdf](data/swiggy_annual_report.pdf)
 
 PDF → Chunking → Embeddings → Vector Database → Retrieval → LLM → Answer
 
+<p align="center">
+  <img src="RAG-architecture-for-PDF-processing.png" width="700"/>
+</p>
+
 ## Technologies Used
 
 - Python
@@ -53,4 +57,9 @@ streamlit run app.py
 
 ## Demo
 
-![Swiggy RAG Chatbot Demo](Demo.png)
+<p align="center">
+  <img src="Demo.png" width="1000"/>
+</p>
+
+
+
