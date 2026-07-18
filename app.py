@@ -1,7 +1,7 @@
 
 import streamlit as st
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from groq import Groq
 
 from langchain_community.document_loaders import PyPDFLoader
@@ -17,10 +17,18 @@ from langchain_community.vectorstores import Chroma
 # client = Groq(api_key=api_key)
 
 
-from groq import Groq
 
-api_key = st.secrets["GROQ_API_KEY"]
-client = Groq(api_key=api_key)     
+
+
+
+load_dotenv()
+
+try:
+    api_key = st.secrets["GROQ_API_KEY"]   # Streamlit Cloud
+except Exception:
+    api_key = os.getenv("GROQ_API_KEY")    # Local .env
+
+client = Groq(api_key=api_key)   
 
 
 # ---------------- UI ---------------- #
@@ -60,28 +68,38 @@ st.divider()
 @st.cache_resource
 def load_rag_pipeline():
 
-    loader = PyPDFLoader("data/swiggy_annual_report.pdf")
-    documents = loader.load()
+    # loader = PyPDFLoader("data/swiggy_annual_report.pdf")
+    # documents = loader.load()
 
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200
-    )
+    # splitter = RecursiveCharacterTextSplitter(
+    #     chunk_size=1000,
+    #     chunk_overlap=200
+    # )
 
-    chunks = splitter.split_documents(documents)
+    # chunks = splitter.split_documents(documents)
+
+    # embeddings = HuggingFaceEmbeddings(
+    #     model_name="sentence-transformers/all-MiniLM-L6-v2"
+    # )
+
+    # vector_db = Chroma.from_documents(
+    #     documents=chunks,
+    #     embedding=embeddings,
+    #     persist_directory="vector_db"
+    # )
+
+    # retriever = vector_db.as_retriever(search_kwargs={"k":3})
 
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
-    vector_db = Chroma.from_documents(
-        documents=chunks,
-        embedding=embeddings,
-        persist_directory="vector_db"
+    vector_db = Chroma(
+        persist_directory="vector_db",
+        embedding_function=embeddings
     )
 
-    retriever = vector_db.as_retriever(search_kwargs={"k":3})
-
+    retriever = vector_db.as_retriever(search_kwargs={"k": 3})
     return retriever
 
 retriever = load_rag_pipeline()

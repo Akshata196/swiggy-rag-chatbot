@@ -12,7 +12,7 @@ venv/
 .env/
 
 # Vector database (large files)
-vector_db/
+#vector_db/
 
 # OS files
 .DS_Store
