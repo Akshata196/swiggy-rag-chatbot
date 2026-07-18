@@ -1,7 +1,7 @@
 
 import streamlit as st
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from groq import Groq
 
 from langchain_community.document_loaders import PyPDFLoader
@@ -9,14 +9,18 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
-load_dotenv()
+# load_dotenv()
 
 
-api_key = os.getenv("GROQ_API_KEY")
+# api_key = os.getenv("GROQ_API_KEY")
 
-client = Groq(api_key=api_key)
+# client = Groq(api_key=api_key)
 
-      
+import streamlit as st
+from groq import Groq
+
+api_key = st.secrets["GROQ_API_KEY"]
+client = Groq(api_key=api_key)     
 
 
 # ---------------- UI ---------------- #
