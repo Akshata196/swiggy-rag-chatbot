@@ -18,6 +18,10 @@ vector_db/
 .DS_Store
 Thumbs.db
 
+# Evaluation output files
+evaluation/accuracy_results.csv
+evaluation/evaluation_results.csv
+
 # Streamlit cache
 .streamlit/
 

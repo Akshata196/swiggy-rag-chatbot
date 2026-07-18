@@ -8,3 +8,5 @@ sentence-transformers
 pypdf
 groq
 python-dotenv
+torch
+transformers
