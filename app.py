@@ -16,7 +16,7 @@ from langchain_community.vectorstores import Chroma
 
 # client = Groq(api_key=api_key)
 
-import streamlit as st
+
 from groq import Groq
 
 api_key = st.secrets["GROQ_API_KEY"]
