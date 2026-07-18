@@ -2,6 +2,9 @@
 
 This project implements a Retrieval-Augmented Generation (RAG) system that answers questions based only on the Swiggy Annual Report.
 
+## Demo
+[Click here](https://swiggy-rag-chatbot-zmubqd6b2taieu8zn8r9qf.streamlit.app/)
+
 ## Dataset
 Swiggy Annual Report FY 2023–2024  
 Source: [data/swiggy_annual_report.pdf](data/swiggy_annual_report.pdf)
